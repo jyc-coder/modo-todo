@@ -63,20 +63,28 @@ $ pnpm run dev
 ## TODO 타입 정의
 
 ```
+
+interface ITodo {
 # 완료 여부
-completed: boolean;
-
+  completed: boolean;
 # 생성 일자
-createdAt: string;
-
+  createdAt: string;
 # TODO id
-id: string;
+  id: string;
 
 # TODO 타이틀
-title: string;
-
+  title: string;
 # 수정 일자
-updatedAt?: string | null;
-
+  updatedAt?: string | null;
+}
 
 ```
+
+## API 정의
+| API  | 정의 | 파라미터  | 응답타  |
+|---|---|---|---|
+| GET /todo  | 할일 목록을 가져옵니다  | N/A  | ITodo[]  |
+| GET /todo/{todoId} | 특정 할일을 가져옵니다 | todoId={string} | ITodo |
+| POST /todo  | 할일을 생성합니다  | N/A  | void  |
+| PATCH /todo/{todoId}  | 특정 할일을 수정합니다  | todoId={string}  | void  |
+| DELETE /todo/{todoId} | 특정 할일을 삭제합니다  | todoId={string}  | void  |
